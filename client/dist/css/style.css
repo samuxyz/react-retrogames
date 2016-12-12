@@ -1,0 +1,357 @@
+/*
+ * Globals
+ */
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+/* Custom default button */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus {
+  color: #333;
+  text-shadow: none; /* Prevent inheritance from `body` */
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+/* Extra markup and styles for table-esque vertical and horizontal centering */
+.site-wrapper {
+  display: table;
+  width: 100%;
+  height: 100%; /* For at least Firefox */
+  min-height: 100%;
+  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+}
+.site-wrapper-inner {
+  display: table-cell;
+  vertical-align: top;
+}
+.cover-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Padding for spacing */
+.inner {
+  padding: 30px;
+}
+
+
+/*
+ * Header
+ */
+.masthead-brand {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.masthead-nav > li {
+  display: inline-block;
+}
+.masthead-nav > li + li {
+  margin-left: 20px;
+}
+.masthead-nav > li > a {
+  padding-right: 0;
+  padding-left: 0;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff; /* IE8 proofing */
+  color: rgba(255,255,255,.75);
+  border-bottom: 2px solid transparent;
+}
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+  background-color: transparent;
+  border-bottom-color: #a9a9a9;
+  border-bottom-color: rgba(255,255,255,.25);
+}
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .masthead-brand {
+    float: left;
+  }
+  .masthead-nav {
+    float: right;
+  }
+}
+
+
+/*
+ * Cover
+ */
+
+.cover {
+  padding: 0 20px;
+}
+.cover .btn-lg {
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+
+/*
+ * Footer
+ */
+
+.mastfoot {
+  color: #999; /* IE8 proofing */
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 768px) {
+  /* Pull out the header and footer */
+  .masthead {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 992px) {
+  .masthead,
+  .mastfoot,
+  .cover-container {
+    width: 800px;
+  }
+}
+
+
+/* custom */
+@font-face {
+  font-family: PressStartFont;
+  src: url(../fonts/PressStart2P.ttf);
+}
+body {
+  font-family: PressStartFont;
+  background: #00173E; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#00173E, #6899F8); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00173E, #6899F8); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00173E, #6899F8); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00173E, #6899F8); /* Standard syntax */
+}
+#content {
+  height:inherit;
+}
+.main {
+  background-image: url('https://cdn.filestackcontent.com/3gIKCiduR5vPM0pF9jDe');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  //font-family: PressStartFont;
+  font-size:12px;
+  height: inherit;
+
+}
+
+@media screen and (min-width: 1350px) {
+    .main {
+      background-size: 100% 100%;
+    }
+}
+
+nav {
+  font-size: 12px;
+}
+
+.lead .btn {
+    background-color: #0c8a27;
+    color: white;
+    border: 1px solid;
+    border-radius: 50px;
+    width: 40%;
+}
+
+.header-logo {
+  width: 300px;
+}
+.btn-submit {
+  background-color: #0c8a27;
+  color: white;
+  border: 1px solid white;
+}
+.lead .btn:hover, .btn-submit:hover {
+  background-color: orange;
+  color:white;
+}
+
+.navbar {
+  min-height: 75px;
+  background-color: initial;
+}
+.navbar-brand {
+  padding: initial;
+}
+.navbar-inverse {
+  border-color: transparent;
+}
+.view {
+    height:100%;
+
+    font-size:10px;
+}
+/*body {
+font-family: PressStartFont;
+
+}
+
+@font-face {
+    font-family: PressStartFont;
+    src: url(PressStart2P.ttf);
+}*/
+footer {
+  height: 50px;
+  background-image: url('https://cdn.filestackcontent.com/Kf2wI9SSTGGeHuGQYiV2');
+  background-repeat: no-repeat;
+  background-position: center center;
+  //background-attachment: fixed;
+  background-size: cover;
+  bottom:0;
+  position:absolute;
+  width:100%;
+}
+.thumbnail img {
+  min-width:350px;
+  min-height:250px;
+}
+
+.row {
+  padding-top: 3em;
+}
+.description-thumbnail {
+  height: 100px;
+}
+.scrollable {
+  overflow:scroll; height:600px;
+}
+.thumbnail {
+  background-color: transparent;
+  border-color: #e5e5e5;
+}
+.thumbnail .caption {
+  color: white;
+}
+.search-bar::-webkit-input-placeholder,
+#name::-webkit-input-placeholder,
+#description::-webkit-input-placeholder,
+#year::-webkit-input-placeholder {
+   color: #e5e5e5;
+}
+
+.search-bar:-moz-placeholder,
+#name:-moz-placeholder,
+#description:-moz-placeholder,
+#year:-moz-placeholder { /* Firefox 18- */
+   color: #e5e5e5;
+}
+
+.search-bar::-moz-placeholder
+#name::-moz-placeholder,
+#description::-moz-placeholder,
+#year::-moz-placeholder {  /* Firefox 19+ */
+   color: #e5e5e5;
+}
+
+.search-bar:-ms-input-placeholder
+#name:-ms-input-placeholder,
+#description:-ms-input-placeholder,
+#year:-ms-input-placeholder {
+   color: #e5e5e5;
+}
+.search-bar {
+  color:yellow;
+  background-color: transparent;
+  border-color: #e5e5e5;
+}
+.panel.panel-default {
+  background-color: transparent;
+  font-size: 14px;
+  border-color: #e5e5e5;
+  margin-top: 2em;
+}
+.panel-default>.panel-heading {
+  background-color: #d9534f;
+  color: white;
+}
+.panel-default input, .panel-default textarea{
+  background-color:transparent;
+}
+.panel-body input, .panel-body textarea {
+  color:white;
+}
+.modal-content {
+  background: #00173E; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#00173E, #6899F8); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00173E, #6899F8); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00173E, #6899F8); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00173E, #6899F8); /* Standard syntax */
+  font-size:10px;
+}
+.modal-header {
+  border-top: 1px solid #e5e5e5;
+}
+.modal-footer {
+  border: initial;
+}
+.img-big {
+  min-width: 100%;
+}
+.img-upload {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.thumbnail-frame {
+  overflow:hidden;
+  height:250px;
+}
+.thumbnail-pic {
+  height:250px;
+  width:100%;
+}
