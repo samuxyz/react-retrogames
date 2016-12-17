@@ -3,7 +3,7 @@ import { Modal, GamesListManager } from '../components';
 
 export default class GamesContainer extends Component {
   constructor (props) {
-    super();
+    super(props);
     this.state = { games: [], selectedGame: {}, searchBar: '' };
     this.toggleModal = this.toggleModal.bind(this);
     this.deleteGame = this.deleteGame.bind(this);
