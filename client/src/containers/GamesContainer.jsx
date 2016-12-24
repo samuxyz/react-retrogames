@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
 import { Modal, GamesListManager } from '../components';
 import * as gamesActionCreators from '../actions/games';
 
-class GamesContainer extends Component {
+class GamesContainer extends PureComponent {
   constructor (props) {
     super(props);
     this.toggleModal = this.toggleModal.bind(this);

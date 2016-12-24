@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { hashHistory } from 'react-router';
@@ -6,7 +6,7 @@ import { Form } from '../components';
 import * as gamesActionCreators from '../actions/games';
 import * as filestackActionCreators from '../actions/filestack';
 
-class AddGameContainer extends Component {
+class AddGameContainer extends PureComponent {
   constructor (props) {
     super(props);
     this.submit = this.submit.bind(this);
