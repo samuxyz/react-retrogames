@@ -11,7 +11,7 @@ import {
 } from '../constants/games';
 import {
 	getGamesSuccess,
-	getGamesFailure ,
+	getGamesFailure,
 	deleteGameSuccess,
 	deleteGameFailure,
   postGameSuccess,
@@ -61,6 +61,7 @@ function* getGames () {
     const games = yield call(fetchGames);
     yield put(getGamesSuccess(games));
   } catch (err) {
+    console.log('here');
     yield put(getGamesFailure());
   }
 }
