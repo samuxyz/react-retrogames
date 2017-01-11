@@ -4,6 +4,8 @@ import {
 	select,
 	call
 } from 'redux-saga/effects';
+import { push } from 'react-router-redux';
+import {actions as toastrActions} from 'react-redux-toastr';
 import {
   GET_GAMES,
 	DELETE_GAME,
@@ -17,6 +19,9 @@ import {
   postGameSuccess,
   postGameFailure
 } from '../actions/games';
+import {
+  logoutUser
+} from '../actions/auth';
 
 const selectedGames = (state) => {
   return state.getIn(['games', 'list']).toJS();
@@ -39,28 +44,40 @@ const deleteServerGame = (id) => {
   return fetch(`http://localhost:8080/games/${id}`, {
     headers: new Headers({
       'Content-Type': 'application/json',
+			'x-access-token': localStorage.getItem('token')
     }),
     method: 'DELETE',
   })
-  .then(response => response.json());
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    }
+    throw response;
+  });
 }
 
 const postServerGame = (game) => {
   return fetch('http://localhost:8080/games', {
     headers: new Headers({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+			'x-access-token': localStorage.getItem('token')
     }),
     method: 'POST',
     body: JSON.stringify(game)
   })
-  .then(response => response.json());
+  .then(response => {
+    if (response.status === 200) {
+      return response.json();
+    }
+    throw response;
+  });
 }
 
 function* getGames () {
   try {
     const games = yield call(fetchGames);
     yield put(getGamesSuccess(games));
-  } catch (err) {
+  } catch (e) {
     yield put(getGamesFailure());
   }
 }
@@ -69,10 +86,28 @@ function* deleteGame (action) {
   const { id } = action;
   const games = yield select(selectedGames);
   try {
-    yield call(deleteServerGame, id);
+    const result = yield call(deleteServerGame, id);
+    yield put(toastrActions.add({
+       type: 'success',
+       title: 'Retrogames Archive',
+       message: result.message
+     }));
     yield put(deleteGameSuccess(games.filter(game => game._id !== id)));
   } catch (e) {
-    yield put(deleteGameFailure());
+    let message = '';
+    if(e.status === 403) {
+      yield put(logoutUser());
+      message = 'Invalid token. You are being logged off';
+    } else {
+      yield put(deleteGameFailure());
+      message = 'Sorry, an error occured!';
+    }
+    localStorage.removeItem('token');
+    yield put(toastrActions.add({
+       type: 'error',
+       title: 'Retrogames Archive',
+       message: message
+     }));
   }
 }
 
@@ -85,10 +120,28 @@ function* postGame () {
   const game = yield select(getGameForm);
   const newGame = Object.assign({}, { picture }, game.values);
   try {
-    yield call(postServerGame, newGame);
+    const result = yield call(postServerGame, newGame);
+    yield put(toastrActions.add({
+       type: 'success',
+       title: 'Retrogames Archive',
+       message: result.message
+     }));
     yield put(postGameSuccess());
+    yield put(push('/games'));
   } catch (e) {
-    yield put(postGameFailure());
+    if(e.status === 403) {
+      yield put(logoutUser());
+      message = 'Invalid token. You are being logged off';
+    } else {
+      yield put(postGameFailure());
+      message = 'Sorry, an error occured!';
+    }
+    localStorage.removeItem('token');
+    yield put(toastrActions.add({
+       type: 'error',
+       title: 'Retrogames Archive',
+       message: message
+     }));
   }
 
 }

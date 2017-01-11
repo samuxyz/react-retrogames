@@ -15,7 +15,6 @@ class AddGameContainer extends Component {
   submit (event) {
     event.preventDefault();
     this.props.gamesActions.postGame();
-    hashHistory.push('/games');
   }
   uploadPicture () {
     this.props.filestackActions.uploadPicture();

@@ -3,8 +3,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
 
-import Game from './app/models/game';
 import { getGames, getGame, postGame, deleteGame } from './app/routes/game';
+import { signup, login, verifyAuth } from './app/routes/user';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -15,7 +15,7 @@ const options = {
   replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } }
 };
 mongoose.Promise = global.Promise;
-mongoose.connect('YOUR_DB_CONNECTION', options);
+mongoose.connect('YOUR_MONGODB_URL', options);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -32,21 +32,26 @@ app.use(express.static(__dirname + '/client/dist'));
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'GET,POST,DELETE');
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token");
   next();
 });
+
+
+// Auth API routes
+app.post('/auth/login', login);
+app.post('/auth/signup', signup);
 
 // API routes
 app.route('/games')
 	// create a game
-	.post(postGame)
+	.post(verifyAuth, postGame)
 	// get all the games
 	.get(getGames);
 app.route('/games/:id')
 	// get a single game
 	.get(getGame)
   // delete a single game
-	.delete(deleteGame);
+	.delete(verifyAuth, deleteGame);
 
 // ...For all the other requests just sends back the Homepage
 app.route("*").get((req, res) => {

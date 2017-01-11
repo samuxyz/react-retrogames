@@ -7,6 +7,8 @@ import Home from './Home';
 import Archive from './Archive';
 import Modal from './Modal';
 import Welcome from './Welcome';
+import Login from './Login';
+import Signup from './Signup';
 
 export {
   About,
@@ -17,5 +19,7 @@ export {
   Home,
   Archive,
   Modal,
-  Welcome
+  Welcome,
+  Login,
+  Signup
 };

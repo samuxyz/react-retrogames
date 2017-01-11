@@ -25,7 +25,7 @@ const postGame = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: 'game created' });
+    res.json({ message: 'Game successfully created!' });
   });
 };
 
@@ -36,7 +36,7 @@ const deleteGame = (req, res) => {
       if (err) {
         res.send(err);
       }
-      res.json({ message: 'successfully deleted' });
+      res.json({ message: 'Game successfully deleted!' });
     }
   );
 };

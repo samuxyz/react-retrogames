@@ -247,7 +247,7 @@ font-family: PressStartFont;
 }*/
 footer {
   height: 50px;
-  background-image: url('https://cdn.filestackcontent.com/Kf2wI9SSTGGeHuGQYiV2');
+  background-image: url('https://cdn.filestackcontent.com/WNgDU84Tiu2kK3SDhwEQ');
   background-repeat: no-repeat;
   background-position: center center;
   //background-attachment: fixed;
@@ -354,4 +354,20 @@ footer {
 .thumbnail-pic {
   height:250px;
   width:100%;
+}
+.wrapper {
+  height:100%
+}
+.add-game-panel h5{
+  text-align: right;
+  margin-right:15px;
+}
+
+.add-game-panel span{
+  cursor:pointer;
+}
+
+.add-game-panel span:hover{
+  color:yellow;
+  text-decoration:underline;
 }
