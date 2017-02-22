@@ -2,7 +2,7 @@
 
 The repository refers to the articles I wrote for Scotch.io:
 
-[Tutorial part.1](https://scotch.io/tutorials/retrogames-library-with-node-react-and-redux-1-server-api-and-react-frontend)
+[Retrogames Library with Node, React, and Redux 1: Server API and React Frontend](https://scotch.io/tutorials/retrogames-library-with-node-react-and-redux-1-server-api-and-react-frontend)
 
 If you don't have *yarn* installed, go ahead and install it.
 From npm:
