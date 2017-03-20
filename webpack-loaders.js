@@ -24,17 +24,17 @@ exports.devServer = function(options) {
 
 exports.css = {
   test: /\.css$/,
-  loaders: ['style', 'css'],
+  use: ['style-loader', 'css-loader'],
   include: PATHS.css
 }
 
 exports.font = {
   test: /\.ttf$/,
-  loaders: ['file']
+  loaders: ['file-loader']
 }
 
 exports.babel = {
   test: /\.jsx?$/,
   exclude: /node_modules/,
-  loaders: ['babel']
+  loaders: ['babel-loader']
 };

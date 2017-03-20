@@ -15,7 +15,7 @@ export default class Layout extends PureComponent {
                 <span className="icon-bar" />
               </button>
               <Link className="navbar-brand" to="/">
-                <img src="https://cdn.filestackcontent.com/nLnmrZQaRpeythR4ezUo" className="header-logo" />
+                <img src="https://cdn.filestackcontent.com/haOEMG05TluD4u8SEIcm" className="header-logo" />
               </Link>
             </div>
           </div>
