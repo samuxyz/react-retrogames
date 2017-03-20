@@ -1,7 +1,6 @@
 "use strict";
 
 const merge = require('webpack-merge');
-const validate = require('webpack-validator');
 
 const PATHS = require('./webpack-paths');
 const loaders = require('./webpack-loaders');
@@ -15,14 +14,14 @@ const common = {
 		filename: 'bundle.js'
 	},
 	module: {
-    loaders: [
+    rules: [
       loaders.babel,
       loaders.css,
       loaders.font,
     ]
   },
 	resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
 };
 
@@ -46,4 +45,4 @@ switch(process.env.NODE_ENV) {
 		);
 }
 
-module.exports = validate(config);
+module.exports = config;
