@@ -9,7 +9,7 @@ import { push } from 'react-router-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { loginUserSuccess } from './actions/auth';
 import ReduxToastr from 'react-redux-toastr';
-import userAuthenticated from './utils';
+import userAuthenticated from './utils/authWrapper';
 
 const store = configureStore();
 const history = syncHistoryWithStore(hashHistory, store, {
@@ -60,9 +60,9 @@ const routes = (
   </Provider>
 );
 
-const token = localStorage.getItem('token');
+/* const token = localStorage.getItem('token');
 if (token !== null) {
     store.dispatch(loginUserSuccess(token));
-}
+}*/
 
 export default routes;

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
-import userAuthenticated from '../utils';
+import userAuthenticated from '../utils/authWrapper';
 
 class AddGamePanel extends PureComponent {
   render () {
